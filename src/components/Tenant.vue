@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <h2 class="mb-3">Tenant Table</h2>
+    <h2 class="mb-3">Tenant</h2>
     <v-card fluid max-width="500px">
       <v-data-table
         :headers="headers"
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "TenantTable",
+  name: "Tenant",
   computed: {
     headers() {
       return this.$store.state.headers;
@@ -28,8 +28,6 @@ export default {
     },
   },
   methods: {
-    openInfo() {
-      console.log("openInfo clicked");
 
     },
   },
