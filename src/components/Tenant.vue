@@ -1,34 +1,30 @@
 <template>
-  <v-container fluid>
-    <h2 class="mb-3">Tenant</h2>
-    <v-card fluid max-width="500px">
-      <v-data-table
-        :headers="headers"
-        :items="tenants"
-        class="elevation-2 mx-auto"
-        @click:row="
-          {
-            openInfo();
-          }
-        "
-      ></v-data-table>
+  <v-dialog v-model="dialog" width="500">
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
+        Click Me
+      </v-btn>
+    </template>
+
+    <v-card>
+     
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn  text @click="dialog = false"> close </v-btn>
+      </v-card-actions>
     </v-card>
-  </v-container>
+  </v-dialog>
 </template>
 
 <script>
 export default {
-  name: "Tenant",
   computed: {
     headers() {
       return this.$store.state.headers;
     },
     tenants() {
       return this.$store.state.tenants;
-    },
-  },
-  methods: {
-
     },
   },
 };

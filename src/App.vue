@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="d-flex">
     <TenantTable />
+    <p>
+      <router-link to="/">go home</router-link>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
