@@ -1,31 +1,24 @@
 {
-  "name": "doorphone",
+  "name": "doorphone2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "make:component": "vue-cli-service make:component",
-    "make:directive": "vue-cli-service make:directive",
-    "make:layout": "vue-cli-service make:layout",
-    "make:mixin": "vue-cli-service make:mixin",
-    "make:view": "vue-cli-service make:view"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
-    "inquirer": "^8.2.4",
     "vue": "^2.6.14",
-    "vue-router": "^4.0.15",
+    "vue-router": "^3.5.1",
     "vuetify": "^2.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "pluralize": "^8.0.0",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.8",
-    "vue-cli-plugin-vuetify-cli": "~0.2.4",
     "vue-template-compiler": "^2.6.14",
     "vuetify-loader": "^1.7.0"
   },

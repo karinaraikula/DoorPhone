@@ -13,12 +13,21 @@
         "
       ></v-data-table>
     </v-card>
+
+    <Tenant />
   </v-container>
 </template>
 
 <script>
+import Tenant from "../components/Tenant.vue";
+
 export default {
   name: "TenantTable",
+
+  components: {
+    Tenant,
+  },
+
   computed: {
     headers() {
       return this.$store.state.headers;
@@ -28,8 +37,8 @@ export default {
     },
   },
   methods: {
-    openInfo(value) {
-      console.log("openInfo clicked", this.value);
+    openInfo(item) {
+      console.log("openInfo clicked", this.item);
     },
   },
 };

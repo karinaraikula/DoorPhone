@@ -1,10 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import vuetify from "@/plugins/vuetify";
-Vue.use(Vuex);
-vuetify;
+import store from './index';
 
-export const store = new Vuex.Store({
+Vue.use(Vuex);
+
+
+export default store = new Vuex.Store({
   state: {
     headers: [
       {

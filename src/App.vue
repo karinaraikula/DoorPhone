@@ -1,19 +1,16 @@
 <template>
-  <div id="app" class="d-flex">
-    <TenantTable />
+  <v-app id="app" class="d-flex">
     <p>
-      <router-link to="/">go home</router-link>
+      <router-link to="/">TenantTable</router-link> |
+      <router-link to="/tenant">Tenant</router-link>
     </p>
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
 
 <script>
-import TenantTable from "./components/TenantTable.vue";
 export default {
-  components: {
-    TenantTable,
-  },
+  components: {},
   name: "App",
   data() {
     return {};

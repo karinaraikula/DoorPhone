@@ -1,18 +1,24 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import TenantTable from "../components/TenantTable";
+import TenantTable from "../views/TenantTable";
 import Tenant from "../components/Tenant";
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: TenantTable },
-  { path: "/tenant", component: Tenant },
+  {
+    path: "/",
+    name: "tenantTable",
+    component: TenantTable,
+  },
+  {
+    path: "/tenant",
+    name: "tenant",
+    component: Tenant,
+  },
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
   routes,
 });
 
