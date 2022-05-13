@@ -6,15 +6,11 @@
         :headers="headers"
         :items="tenants"
         class="elevation-2 mx-auto"
-        @click:row="
-          {
-            openInfo();
-          }
-        "
-      ></v-data-table>
+        @click:row="openInfo"
+      >
+        <Tenant />
+      </v-data-table>
     </v-card>
-
-    <Tenant />
   </v-container>
 </template>
 
@@ -27,7 +23,9 @@ export default {
   components: {
     Tenant,
   },
-
+  data() {
+    return {};
+  },
   computed: {
     headers() {
       return this.$store.state.headers;
@@ -38,8 +36,12 @@ export default {
   },
   methods: {
     openInfo(item) {
-      console.log("openInfo clicked", this.item);
+      console.log("openInfo clicked", item.data);
+      this.$router.push({ name: "tenant" });
     },
+  },
+  mounted() {
+    console.log(this.$store.state.tenants);
   },
 };
 </script>

@@ -1,33 +1,21 @@
 <template>
-  <v-dialog v-model="tenantDialog" width="500">
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
-        Click Me
-      </v-btn>
-    </template>
-
-    <v-card>
-      <v-card-title class="text-h5 grey lighten-2">
-        Privacy Policy
-      </v-card-title>
-
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" text @click="tenantDialog = false">
-          I accept
-        </v-btn>
-      </v-card-actions>
+  <v-container>
+    <v-card class="pa-5">
+      <v-form id="tenantform">
+        <label>Name</label>
+        <input type="text" />
+        <label>Phone number</label>
+        <input type="text" />
+        <label>Email</label>
+        <input type="email" />
+        <v-btn>button</v-btn>
+      </v-form>
     </v-card>
-  </v-dialog>
+  </v-container>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      tenantDialog: false,
-    };
-  },
   computed: {
     headers() {
       return this.$store.state.headers;
@@ -36,5 +24,21 @@ export default {
       return this.$store.state.tenants;
     },
   },
+  mounted() {
+  },
 };
+
 </script>
+<style scoped>
+#tenantform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+}
+
+#tenantform input {
+  border: 1px solid black;
+}
+</style>
