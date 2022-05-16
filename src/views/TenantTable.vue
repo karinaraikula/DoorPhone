@@ -8,23 +8,26 @@
         class="elevation-2 mx-auto"
         @click:row="openInfo"
       >
-        <Tenant />
       </v-data-table>
+      <v-btn @click="addNew">Add new</v-btn>
     </v-card>
   </v-container>
 </template>
 
 <script>
 import Tenant from "../components/Tenant.vue";
-
+import AddTenant from "../views/AddTenant.vue";
 export default {
   name: "TenantTable",
 
   components: {
     Tenant,
+    AddTenant,
   },
   data() {
-    return {};
+    return {
+      item: {},
+    };
   },
   computed: {
     headers() {
@@ -36,8 +39,11 @@ export default {
   },
   methods: {
     openInfo(item) {
-      console.log("openInfo clicked", item.data);
+      console.log(item.id);
       this.$router.push({ name: "tenant" });
+    },
+    addNew() {
+      this.$router.push({ name: "addtenant" });
     },
   },
   mounted() {

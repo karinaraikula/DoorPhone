@@ -1,9 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import store from './index';
+import store from "./index";
 
 Vue.use(Vuex);
-
 
 export default store = new Vuex.Store({
   state: {
@@ -18,13 +17,20 @@ export default store = new Vuex.Store({
       },
     ],
     tenants: [
-      { name: "Meikäläinen", flat: 1, email: "email" },
-      { name: "Mattinen", flat: 2, email: "email" },
-      { name: "Menninkäinen", flat: 3, email: "email" },
+      { id: 1, name: "Meikäläinen", flat: 12, email: "email" },
+      { id: 2, name: "Mattinen", flat: 23, email: "email" },
+      { id: 3, name: "Menninkäinen", flat: 43, email: "email" },
     ],
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    addCurrentTenant(state, data) {
+      state.currentTenant = data;
+    },
+    addTenantListener(state, data) {
+      state.tenantListener = data;
+    },
+  },
   actions: {},
   modules: {},
 });

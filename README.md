@@ -1,4 +1,4 @@
-# doorphone2
+# doorphone
 
 ## Project setup
 ```

@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  data() {
+data() {
     return {
       flat: "",
       name: "",
@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     submit() {
+      console.log(this.name, this.email);
       const tenant = {
         flat: this.flat,
         name: this.name,
