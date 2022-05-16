@@ -17,6 +17,7 @@
 <script>
 import Tenant from "../components/Tenant.vue";
 import AddTenant from "../views/AddTenant.vue";
+
 export default {
   name: "TenantTable",
 
@@ -36,18 +37,23 @@ export default {
     tenants() {
       return this.$store.state.tenants;
     },
-  },
-  methods: {
-    openInfo(item) {
-      console.log(item.id);
-      this.$router.push({ name: "tenant" });
-    },
-    addNew() {
-      this.$router.push({ name: "addtenant" });
+    getTenantById() {
+      return this.$store.getters.getTenantById;
     },
   },
-  mounted() {
-    console.log(this.$store.state.tenants);
-  },
+    methods: {
+      openInfo(item) {
+        console.log(this.$store.getters.getTenantById(item.id));
+        this.$router.push({ name: "tenant" });
+      },
+
+      addNew() {
+        this.$router.push({ name: "addtenant" });
+      },
+    },
+    mounted() {
+      console.log(this.$store.state.tenants);
+    },
+
 };
 </script>

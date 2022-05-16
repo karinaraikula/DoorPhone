@@ -22,14 +22,15 @@ export default store = new Vuex.Store({
       { id: 3, name: "Menninkäinen", flat: 43, email: "email" },
     ],
   },
-  getters: {},
+
+  getters: {
+    getTenantById: (state) => (id) => {
+      return state.tenants.find((tenant) => tenant.id === id);
+    },
+  },
+
   mutations: {
-    addCurrentTenant(state, data) {
-      state.currentTenant = data;
-    },
-    addTenantListener(state, data) {
-      state.tenantListener = data;
-    },
+
   },
   actions: {},
   modules: {},
