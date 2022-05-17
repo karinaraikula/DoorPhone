@@ -27,9 +27,7 @@ export default {
     AddTenant,
   },
   data() {
-    return {
-      item: {},
-    };
+    return {};
   },
 
   computed: {
@@ -39,15 +37,14 @@ export default {
     tenants() {
       return this.$store.state.tenants;
     },
-    getTenantById() {
-      return this.$store.getters.getTenantById;
-    },
   },
 
   methods: {
     openInfo(item) {
+      console.log("openinfo clicked ", this.$store.getters.getTenantById(item.flat));
 
-      console.log(this.$store.getters.getTenantById(item.id));
+      const tenantProfile = this.$store.getters.getTenantById(item.flat);
+      this.$store.commit('openTenant', tenantProfile);
       this.$router.push({ name: "tenant" });
     },
 
@@ -57,7 +54,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.$store.state.tenants);
+    console.log("mounted ", this.$store.state.tenants);
   },
 };
 </script>

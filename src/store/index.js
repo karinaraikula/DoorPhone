@@ -22,20 +22,17 @@ export default store = new Vuex.Store({
 
   getters: {
     getTenantById: (state) => (id) => {
-      return state.tenants.find((tenant) => tenant.id === id);
+      return state.tenants.find((tenant) => tenant.flat === id);
     },
+    
   },
 
   mutations: {
-    updateTenant(state, message) {
-      state.message = message;
-    },
-  },
-  
-  updateMessage (state, message) {
-    state.message = message
-},
+      openTenant: (state, data) => {
+        state.tenantProfile = Object.assign({}, data)
 
+    }
+  },
 
   actions: {},
   modules: {},

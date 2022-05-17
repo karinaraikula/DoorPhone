@@ -68,6 +68,8 @@ export default {
         email: this.email,
         phoneNumber1: this.phoneNumber1,
       });
+      console.log("tenant added");
+      this.$router.push({ name: "tenantTable" });
     },
   },
   computed: {

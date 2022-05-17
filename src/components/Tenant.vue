@@ -14,31 +14,7 @@
           prepend-icon="mdi-pencil"
         >
         </v-text-field>
-        <v-text-field
-          label="Phone number 2"
-          v-model="phoneNumber2"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 3"
-          v-model="phoneNumber3"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 4"
-          v-model="phoneNumber4"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 5"
-          v-model="phoneNumber5"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-btn text @click="submit">Save</v-btn>
+        <v-btn text @click="update">Update</v-btn>
       </v-form>
     </v-card>
   </v-container>
@@ -48,35 +24,30 @@
 export default {
   data() {
     return {
-      name: this.$store.state.getTenantById.name,
-      flat: "",
-      email: "",
-      phoneNumber1: "",
-      phoneNumber2: "",
-      phoneNumber3: "",
-      phoneNumber4: "",
-      phoneNumber5: "",
+      name: this.$store.state.tenantProfile.name,
+      flat: this.$store.state.tenantProfile.flat,
+      email: this.$store.state.tenantProfile.email,
+      phoneNumber1: this.$store.state.tenantProfile.phoneNumber1,
     };
   },
   methods: {
-    submit() {
+    update() {
       const tenant = {
         flat: this.flat,
         name: this.name,
         email: this.email,
         phoneNumber1: this.phoneNumber1,
-        phoneNumber2: this.phoneNumber2,
-        phoneNumber3: this.phoneNumber3,
-        phoneNumber4: this.phoneNumber4,
-        phoneNumber5: this.phoneNumber5,
       };
-      console.log(tenant);
+      console.log("update tenant ", tenant);
     },
   },
   computed: {
-    getTenantById() {
-      return this.$store.getters.getTenantById;
+    tenantProfile() {
+      return this.$store.state.tenantProfile;
     },
+  },
+  mounted() {
+    console.log("mounted ", this.$store.state.tenantProfile);
   },
 };
 </script>
