@@ -14,6 +14,7 @@
           prepend-icon="mdi-pencil"
         >
         </v-text-field>
+        <!---
         <v-text-field
           label="Phone number 2"
           v-model="phoneNumber2"
@@ -38,6 +39,7 @@
           prepend-icon="mdi-pencil"
         >
         </v-text-field>
+        ----->
         <v-btn text @click="submit">Save</v-btn>
       </v-form>
     </v-card>
@@ -46,33 +48,37 @@
 
 <script>
 export default {
-data() {
+  data() {
     return {
       flat: "",
       name: "",
       email: "",
       phoneNumber1: "",
-      phoneNumber2: "",
-      phoneNumber3: "",
-      phoneNumber4: "",
-      phoneNumber5: "",
+      //phoneNumber2: "",
+      //phoneNumber3: "",
+      //phoneNumber4: "",
+      //phoneNumber5: "",
     };
   },
   methods: {
     submit() {
-      console.log(this.name, this.email);
-      const tenant = {
+      this.$store.state.tenants.push({
         flat: this.flat,
         name: this.name,
         email: this.email,
         phoneNumber1: this.phoneNumber1,
-        phoneNumber2: this.phoneNumber2,
-        phoneNumber3: this.phoneNumber3,
-        phoneNumber4: this.phoneNumber4,
-        phoneNumber5: this.phoneNumber5,
-      };
-      console.log(tenant);
+      });
     },
+  },
+  computed: {
+    /* name: {
+      get() {
+        return this.$store.state.name;
+      },
+      set(value) {
+        this.$store.commit("updateTenant", value);
+      },
+    },*/
   },
 };
 </script>

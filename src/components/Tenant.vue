@@ -48,8 +48,8 @@
 export default {
   data() {
     return {
+      name: this.$store.state.getTenantById.name,
       flat: "",
-      name: "",
       email: "",
       phoneNumber1: "",
       phoneNumber2: "",
@@ -71,6 +71,11 @@ export default {
         phoneNumber5: this.phoneNumber5,
       };
       console.log(tenant);
+    },
+  },
+  computed: {
+    getTenantById() {
+      return this.$store.getters.getTenantById;
     },
   },
 };

@@ -16,11 +16,8 @@ export default store = new Vuex.Store({
         value: "name",
       },
     ],
-    tenants: [
-      { id: 1, name: "Meikäläinen", flat: 12, email: "email" },
-      { id: 2, name: "Mattinen", flat: 23, email: "email" },
-      { id: 3, name: "Menninkäinen", flat: 43, email: "email" },
-    ],
+    tenants: [],
+    tenantProfile: {},
   },
 
   getters: {
@@ -30,8 +27,16 @@ export default store = new Vuex.Store({
   },
 
   mutations: {
-
+    updateTenant(state, message) {
+      state.message = message;
+    },
   },
+  
+  updateMessage (state, message) {
+    state.message = message
+},
+
+
   actions: {},
   modules: {},
 });

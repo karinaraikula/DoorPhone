@@ -8,6 +8,7 @@
         class="elevation-2 mx-auto"
         @click:row="openInfo"
       >
+        <Tenant />
       </v-data-table>
       <v-btn @click="addNew">Add new</v-btn>
     </v-card>
@@ -30,6 +31,7 @@ export default {
       item: {},
     };
   },
+
   computed: {
     headers() {
       return this.$store.state.headers;
@@ -41,19 +43,21 @@ export default {
       return this.$store.getters.getTenantById;
     },
   },
-    methods: {
-      openInfo(item) {
-        console.log(this.$store.getters.getTenantById(item.id));
-        this.$router.push({ name: "tenant" });
-      },
 
-      addNew() {
-        this.$router.push({ name: "addtenant" });
-      },
-    },
-    mounted() {
-      console.log(this.$store.state.tenants);
+  methods: {
+    openInfo(item) {
+
+      console.log(this.$store.getters.getTenantById(item.id));
+      this.$router.push({ name: "tenant" });
     },
 
+    addNew() {
+      this.$router.push({ name: "addtenant" });
+    },
+  },
+
+  mounted() {
+    console.log(this.$store.state.tenants);
+  },
 };
 </script>
