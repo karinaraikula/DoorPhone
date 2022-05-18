@@ -40,9 +40,9 @@ export default store = new Vuex.Store({
       );
     },
 
-    deleteTenant: (state, tenant) => {
+    deleteTenant: (state, currentTenant) => {
       state.tenants = state.tenants.filter(
-        (x) => x.tenantId != tenant.id
+        (tenant) => tenant.id != currentTenant.id
       );
     },
 

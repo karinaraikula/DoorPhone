@@ -16,7 +16,7 @@
         >
         </v-text-field>
         <v-btn text @click="update">Update</v-btn>
-        <v-btn text @click="deleteTenant()">Delete</v-btn>
+        <v-btn text @click="deleteTenant(currentTenant)">Delete</v-btn>
       </v-form>
     </v-card>
   </v-container>
@@ -46,8 +46,8 @@ export default {
       this.$router.push({ name: "tenantTable" });
     },
 
-    deleteTenant() {
-      this.$store.commit("deleteTenant", currentTenant);
+    deleteTenant(tenant) {
+      this.$store.commit("deleteTenant",tenant,);
       this.$router.push({ name: "tenantTable" });
     },
   },
