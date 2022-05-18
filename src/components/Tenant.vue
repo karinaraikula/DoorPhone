@@ -24,10 +24,10 @@
 export default {
   data() {
     return {
-      name: this.$store.state.tenantProfile.name,
-      flat: this.$store.state.tenantProfile.flat,
-      email: this.$store.state.tenantProfile.email,
-      phoneNumber1: this.$store.state.tenantProfile.phoneNumber1,
+      name: this.$store.state.currentTenant.name,
+      flat: this.$store.state.currentTenant.flat,
+      email: this.$store.state.currentTenant.email,
+      phoneNumber1: this.$store.state.currentTenant.phoneNumber1,
     };
   },
   methods: {
@@ -38,16 +38,20 @@ export default {
         email: this.email,
         phoneNumber1: this.phoneNumber1,
       };
-      console.log("update tenant ", tenant);
+      console.log("tenant info: ", tenant);
+
+      this.$store.commit("updateTenant", tenant);
+      this.$router.push({ name: "tenantTable" });
     },
   },
   computed: {
-    tenantProfile() {
-      return this.$store.state.tenantProfile;
+    currentTenant() {
+      return this.$store.state.currentTenant;
     },
   },
+  //getCurrentTenant
   mounted() {
-    console.log("mounted ", this.$store.state.tenantProfile);
+    console.log("mounted ", this.$store.state.currentTenant);
   },
 };
 </script>

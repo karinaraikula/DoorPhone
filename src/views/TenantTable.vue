@@ -26,9 +26,6 @@ export default {
     Tenant,
     AddTenant,
   },
-  data() {
-    return {};
-  },
 
   computed: {
     headers() {
@@ -43,8 +40,8 @@ export default {
     openInfo(item) {
       console.log("openinfo clicked ", this.$store.getters.getTenantById(item.flat));
 
-      const tenantProfile = this.$store.getters.getTenantById(item.flat);
-      this.$store.commit('openTenant', tenantProfile);
+      const currentTenant = this.$store.getters.getTenantById(item.flat);
+      this.$store.commit('openTenant', currentTenant);
       this.$router.push({ name: "tenant" });
     },
 
