@@ -18,11 +18,12 @@ export default store = new Vuex.Store({
     ],
     tenants: [],
     currentTenant: {},
+    tenantId: 1,
   },
 
   getters: {
     getTenantById: (state) => (id) => {
-      return state.tenants.find((tenant) => tenant.flat === id);
+      return state.tenants.find((tenant) => tenant.id === id);
     },
   },
 
@@ -34,13 +35,15 @@ export default store = new Vuex.Store({
     updateTenant: (state, data) => {
       Vue.set(
         state.tenants,
-        state.tenants.findIndex((tenant) => tenant.flat == data.flat),
+        state.tenants.findIndex((tenant) => tenant.id == data.id),
         data
       );
     },
 
-    deleteTenant: (state,tenant) => {
-      state.tenants.splice(!state.tenants.indexOf(tenant), 1);
+    deleteTenant: (state, tenant) => {
+      state.tenants = state.tenants.filter(
+        (x) => x.tenantId != tenant.id
+      );
     },
 
     //const setTenant = tenants.find((tenant) => tenant.flat === id);

@@ -2,6 +2,7 @@
   <v-container>
     <v-card class="pa-5">
       <v-form>
+        <v-text-field label="Tenant ID" v-model="id" disabled> </v-text-field>
         <v-text-field label="Flat no." v-model="flat" prepend-icon="mdi-pencil">
         </v-text-field>
         <v-text-field label="Name" v-model="name" prepend-icon="mdi-pencil">
@@ -14,32 +15,6 @@
           prepend-icon="mdi-pencil"
         >
         </v-text-field>
-        <!---
-        <v-text-field
-          label="Phone number 2"
-          v-model="phoneNumber2"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 3"
-          v-model="phoneNumber3"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 4"
-          v-model="phoneNumber4"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        <v-text-field
-          label="Phone number 5"
-          v-model="phoneNumber5"
-          prepend-icon="mdi-pencil"
-        >
-        </v-text-field>
-        ----->
         <v-btn text @click="submit">Save</v-btn>
       </v-form>
     </v-card>
@@ -50,37 +25,26 @@
 export default {
   data() {
     return {
+      id: this.$store.state.tenantId,
       flat: "",
       name: "",
       email: "",
       phoneNumber1: "",
-      //phoneNumber2: "",
-      //phoneNumber3: "",
-      //phoneNumber4: "",
-      //phoneNumber5: "",
     };
   },
   methods: {
     submit() {
       this.$store.state.tenants.push({
+        id: this.id,
         flat: this.flat,
         name: this.name,
         email: this.email,
         phoneNumber1: this.phoneNumber1,
       });
+      this.$store.state.tenantId++;
       console.log("tenant added");
       this.$router.push({ name: "tenantTable" });
     },
-  },
-  computed: {
-    /* name: {
-      get() {
-        return this.$store.state.name;
-      },
-      set(value) {
-        this.$store.commit("updateTenant", value);
-      },
-    },*/
   },
 };
 </script>

@@ -10,7 +10,7 @@
       >
         <Tenant />
       </v-data-table>
-      <v-btn @click="addNew">Add new</v-btn>
+      <v-btn @click="addTenant">Add new</v-btn>
     </v-card>
   </v-container>
 </template>
@@ -38,14 +38,17 @@ export default {
 
   methods: {
     openInfo(item) {
-      console.log("openinfo clicked ", this.$store.getters.getTenantById(item.flat));
+      console.log(
+        "openinfo clicked ",
+        this.$store.getters.getTenantById(item.id)
+      );
 
-      const currentTenant = this.$store.getters.getTenantById(item.flat);
-      this.$store.commit('openTenant', currentTenant);
+      const currentTenant = this.$store.getters.getTenantById(item.id);
+      this.$store.commit("openTenant", currentTenant);
       this.$router.push({ name: "tenant" });
     },
 
-    addNew() {
+    addTenant() {
       this.$router.push({ name: "addtenant" });
     },
   },
