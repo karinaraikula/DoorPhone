@@ -30,15 +30,20 @@ export default store = new Vuex.Store({
     openTenant: (state, data) => {
       state.currentTenant = Object.assign({}, data);
     },
+
     updateTenant: (state, data) => {
       Vue.set(
         state.tenants,
         state.tenants.findIndex((tenant) => tenant.flat == data.flat),
         data
       );
-
-      //const setTenant = tenants.find((tenant) => tenant.flat === id);
     },
+
+    deleteTenant: (state,tenant) => {
+      state.tenants.splice(!state.tenants.indexOf(tenant), 1);
+    },
+
+    //const setTenant = tenants.find((tenant) => tenant.flat === id);
   },
 
   actions: {},
